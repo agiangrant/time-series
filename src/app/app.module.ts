@@ -5,12 +5,14 @@ import { RoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { TagListTableComponent } from './tag-list-table/tag-list-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    TagListTableComponent
   ],
   imports: [
     BrowserModule,
