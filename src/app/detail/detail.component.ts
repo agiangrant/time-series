@@ -16,27 +16,10 @@ export class DetailComponent implements OnInit {
   // remove clear button so datepicker will always be populated with something
   dateRangePickerOptions:IMyDrpOptions = {dateFormat: 'mm/dd/yyyy',editableDateRangeField: false, showClearDateRangeBtn:false}
 
-  public lineChartOptions:any = {
-    responsive: true,
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true,
-        }
-      }],
-      xAxes: [{
-        type: 'time',
-        time: {
-          displayFormats: {
-            hour : 'MMM D hA'
-          }
-        }
-      }]
-    }
-  };
   public lineChartType:string = 'line';
  
   constructor(private route: ActivatedRoute, private router:Router, public dataPointService:DataPointService) {
+    this.dataPointService.chartDataReady = false;
     this.tagId = route.snapshot.params['tagId'];
     if(!this.tagId) {
       this.router.navigate(['/']);

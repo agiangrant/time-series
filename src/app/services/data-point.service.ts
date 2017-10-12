@@ -14,6 +14,30 @@ export class DataPointService {
     lineChartData:Array<any> = [{data: []}];
     lineChartLabels:Array<any> = [];
     chartDataReady = false;
+
+    public lineChartOptions:any = {
+        responsive: true,
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: ""
+            },
+            ticks: {
+              beginAtZero: true,
+            }
+          }],
+          xAxes: [{
+            type: 'time',
+            time: {
+              displayFormats: {
+                hour : 'MMM D hA'
+              }
+            }
+          }]
+        }
+      };
+
     constructor(private http:Http, private toastr:ToastsManager, private tagService:TagService, private router:Router) {
     }
 
@@ -56,6 +80,7 @@ export class DataPointService {
                 this.lineChartLabels.push(datapoint.observationTS);
             }
         });
+        this.lineChartOptions.scales.yAxes[0].scaleLabel.labelString = this.currentTag.unit;
         this.chartDataReady = true;
     }
 }
