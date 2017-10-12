@@ -76,7 +76,12 @@ export class DataPointService {
         var limit = Math.ceil(this.dataPoints.length / 200)
         this.dataPoints.forEach((datapoint,idx) => {
             if(idx % limit === 0) {
-                this.lineChartData[0].data.push(datapoint.value);
+                if(isNaN(datapoint.value)) {
+                    this.lineChartData[0].data.push((datapoint.value.toString().toLowerCase() === 'on') ? 1 : 0)
+                }
+                else {
+                    this.lineChartData[0].data.push(datapoint.value);
+                }
                 this.lineChartLabels.push(datapoint.observationTS);
             }
         });
