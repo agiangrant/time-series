@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Tag } from '../interfaces/tag';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Injectable()
 export class TagService {
-    constructor(private http:Http) {
+    constructor(private http:Http, private toastr:ToastsManager) {
         this.fetch();
     }
     tags:Tag[];
@@ -16,6 +17,8 @@ export class TagService {
         },
         error => {
             console.log(error);
+            // let's toast the user with a notification if something went wrong
+            this.toastr.error("An error occurred while attempting to get Tag data.", "ERROR!");
         });
     }
 
