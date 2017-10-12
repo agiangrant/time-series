@@ -24,7 +24,9 @@ import { DetailComponent } from './detail/detail.component';
     BrowserModule,
     RoutingModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]
