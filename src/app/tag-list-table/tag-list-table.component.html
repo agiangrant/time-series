@@ -1,3 +1,30 @@
-<p>
-  tag-list-table works!
-</p>
+<div class="col-md-3"></div>
+<div class="col-md-6">
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead class="table">
+        <tr>
+          <td>Tag Name</td>
+          <td>Features</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows">
+          <td>
+            {{row.tagId}}
+          </td>
+          <td>
+            {{row.features.join(', ')}}
+          </td>
+          <td>
+            <div>
+              <button class="btn btn-primary" routerLink="/detail/{{row.tagId}}">View Data Points</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="col-md-3"></div>
