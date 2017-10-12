@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TagListTableComponent } from './tag-list-table.component';
+import { TagService } from '../services/tag.service';
 
 describe('TagListTableComponent', () => {
   let component: TagListTableComponent;
