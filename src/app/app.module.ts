@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TagListTableComponent } from './tag-list-table/tag-list-table.component';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    TagListTableComponent
+    TagListTableComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
