@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./tag-list-table.component.css']
 })
 export class TagListTableComponent implements OnInit {
-  rows:Array<any> = this.tagService.tags;
   filteredText = "";
-  constructor(public tagService:TagService, private router:Router) { }
+  constructor(public tagService:TagService, private router:Router) {
+  }
 
   ngOnInit() {
   }
@@ -31,6 +31,6 @@ export class TagListTableComponent implements OnInit {
     //notice we use tagService to filter
     let filteredData = this.changeFilter(this.tagService.tags, this.filteredText);
     // reassign rows
-    this.rows = filteredData;
+    this.tagService.rows = filteredData;
   }
 }

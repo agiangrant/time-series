@@ -5,12 +5,17 @@ import { NgModule } from '@angular/core';
 import { RoutingModule } from './app.routing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { ChartsModule } from 'ng2-charts';
+import { MyDateRangePickerModule } from 'mydaterangepicker';
+
+import { TagService } from './services/tag.service';
+import { DataPointService } from './services/data-point.service';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { TagListTableComponent } from './tag-list-table/tag-list-table.component';
+import { HomeComponent } from './home/home.component';
 import { DetailComponent } from './detail/detail.component';
+import { TagListTableComponent } from './tag-list-table/tag-list-table.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +31,14 @@ import { DetailComponent } from './detail/detail.component';
     HttpModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastModule
+    ToastModule.forRoot(),
+    ChartsModule,
+    MyDateRangePickerModule
   ],
-  providers: [],
+  providers: [
+    TagService,
+    DataPointService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

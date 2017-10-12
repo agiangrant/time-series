@@ -1,3 +1,18 @@
-<p>
-  detail works!
-</p>
+<h1>Data Point Details</h1>
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
+  <my-date-range-picker class="picker" name="mydaterange" [options]="dateRangePickerOptions" [(ngModel)]="dateRange" (ngModelChange)="updateChart()">
+  </my-date-range-picker>
+  <div *ngIf="dataPointService.chartDataReady">
+    <canvas
+      baseChart #baseChart="base-chart" width="400" height="400" 
+      [chartType]="lineChartType"
+      [datasets]="dataPointService.lineChartData"
+      [labels]="dataPointService.lineChartLabels"
+      [options]="lineChartOptions"
+      [legend]="false">
+    </canvas>
+  </div>
+</div>
+<div class="col-md-3"></div>
