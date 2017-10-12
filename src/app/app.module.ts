@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RoutingModule } from './app.routing';
 
@@ -16,7 +17,8 @@ import { TagListTableComponent } from './tag-list-table/tag-list-table.component
   ],
   imports: [
     BrowserModule,
-    RoutingModule
+    RoutingModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
