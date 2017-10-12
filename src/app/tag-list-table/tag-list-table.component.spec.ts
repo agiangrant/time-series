@@ -1,15 +1,25 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TagListTableComponent } from './tag-list-table.component';
+import { Router, RouterLink } from '@angular/router';
 import { TagService } from '../services/tag.service';
+import { FormsModule } from '@angular/forms';
+import { Http, ConnectionBackend, HttpModule } from '@angular/http';
+import { ToastsManager, ToastOptions } from 'ng2-toastr/ng2-toastr';
+
 
 describe('TagListTableComponent', () => {
   let component: TagListTableComponent;
   let fixture: ComponentFixture<TagListTableComponent>;
 
+  let mockRouter = {
+    navigate: jasmine.createSpy('navigate')
+  };
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TagListTableComponent ]
+      declarations: [ TagListTableComponent, RouterLink ],
+      imports: [FormsModule, HttpModule],
+      providers: [{provide: Router, useValue: mockRouter}, TagService, Http, ConnectionBackend, ToastsManager, ToastOptions]
     })
     .compileComponents();
   }));
