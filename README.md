@@ -1,10 +1,13 @@
-# CleanSpark
+# Time Series
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* clone with `git clone http://github.com/andrew-giangrant/time-series`
+* cd in time-series `cd time-series`
+* install dependencies with `yarn install` or `npm install`
+* launch development serve with `ng serve --port=[port_number]`
 
 ## Code scaffolding
 
