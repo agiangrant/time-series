@@ -1,6 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
 import { ViewContainerRef } from '@angular/core';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RoutingModule } from './app.routing';
@@ -11,9 +10,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { ToastModule, ToastsManager, ToastOptions } from 'ng2-toastr/ng2-toastr';
 import { ChartsModule } from 'ng2-charts';
 import { MyDateRangePickerModule } from 'mydaterangepicker';
+import { APP_BASE_HREF } from '@angular/common';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -34,7 +34,8 @@ describe('AppComponent', () => {
         ToastModule,
         ChartsModule,
         MyDateRangePickerModule
-      ]
+      ],
+      providers: [ {provide: APP_BASE_HREF, useValue: '/'}, ToastsManager, ToastOptions]
     }).compileComponents();
   }));
 
